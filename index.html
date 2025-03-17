@@ -274,18 +274,20 @@
           </div>
         </div>
         <div class="contact-form" data-aos="fade-up" data-aos-duration="600">
-          <form action="">
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="redirect" value="https://niks-cleaning.onrender.com/#contact">
+            <input type="hidden" name="access_key" value="998cb906-467b-4797-8392-59d2f724de81">
              <div class="input-box">
-              <input type="text" placeholder="Name" class="input-control" required>
+              <input type="text" name="name" id="name" placeholder="Name" class="input-control" required>
             </div>
             <div class="input-box">
-              <input type="email" placeholder="Email" class="input-control" required>
+              <input type="email" name="email" id="email" placeholder="Email" class="input-control" required>
             </div>
             <div class="input-box">
-              <input type="phone" placeholder="Phone" class="input-control" required>
+              <input type="phone" name="phone" id="phone" placeholder="Phone" class="input-control" required>
             </div>
             <div class="input-box">
-              <textarea placeholder="Message" class="input-control" required></textarea>
+              <textarea placeholder="Message" name="message" id="message" class="input-control" required></textarea>
             </div>
             <div class="btn-wrap" data-aos="fade-up" data-aos-duration="600">
               <button type="submit" class="btn">Send Message</button>
@@ -314,5 +316,33 @@
   <script src="js/aos.js"></script>
 <script src="js/main.js"></script>
 <script src="js/style-switcher.js"></script>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Stop the default form submission behavior
+
+    const formData = new FormData(this);
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      if (result.success) {
+        alert("Message sent successfully!");
+        document.getElementById("contactForm").reset(); // ✅ Reset form fields
+        setTimeout(() => {
+          window.location.href = "index.html?#contact"; // ✅ Redirect after submission
+        }, 2000);
+      } else {
+        alert("Form submission failed. Please try again.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Something went wrong. Try again later.");
+    });
+  });
+</script>
 </body>
 </html>

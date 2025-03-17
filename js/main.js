@@ -52,3 +52,22 @@ const navigation = ()=>{
 }
 
 navigation();
+
+// send email
+const sendEmail = ()=>{
+    Email.send({
+        Host:"smtp.gmail.com",
+        Username: "khsuhalgarg00886@gmail.com",
+        Password: "Khushal@12",
+        To:"info.nikscleaning@gmail.com",
+        From:document.getElementById('email').value,
+        Subject:"Sending Email using javascript",
+        Body:"Name: "+ document.getElementById('name').value 
+        + "<br> Email: " + document.getElementById('email').value 
+        + "<br> Phone: " + document.getElementById('phone').value
+        + "<br> Message: " + document.getElementById('message').value
+    }).then(console.log("email sent successfully"))
+
+}
+
+sendEmail();
