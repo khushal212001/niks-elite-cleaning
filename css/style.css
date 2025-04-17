@@ -595,7 +595,7 @@ transition: opacity 0.6s ease;
 /* footer */
 
 .footer{
-    padding: 50px 0;
+    padding: 20px 0 0 0;
     background-color: var(--main-color);
     text-align: center;
     position: relative;
@@ -631,6 +631,24 @@ transition: opacity 0.6s ease;
 background-color: var(--text-deep-gold);
 color: black;
 border-color: var(--text-dark-gold);
+}
+
+.footer .review a{
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-color: black;
+    transition: all 0.5s ease;
+    margin: 20px;
+    padding: 5px 20px;
+    border-radius: 30px;
+}
+
+.footer .review a:hover{
+    background-color: var(--text-deep-gold);
+    color: black;
+    border-color: var(--text-dark-gold);
 }
 
 /* responsiveness */
