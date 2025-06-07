@@ -1,5 +1,9 @@
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import './css/aos.css';
+import './css/fontawesome.min.css';
+import './css/style.css';
+
 
 function App() {
   return (
